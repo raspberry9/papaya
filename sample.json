@@ -1,0 +1,30 @@
+{
+  "version": "abc1234",
+  "namespace": "Proto",
+  "enum LoginChannel(int16)": {
+    "Guest": 0,
+    "Google": 1,
+    "GameCenter": 2,
+    "Facebook": 3
+  },
+  "enum LoginChannelAsStr(str)": {
+    "Guest": "gu",
+    "Google": "go",
+    "GameCenter": "gs",
+    "Facebook": "fb"
+  },
+  "struct ReqLogin": {
+    "user_id": "str",
+    "password": "str",
+    "channel": "LoginChannel"
+  },
+  "struct User": {
+    "user_id": "str"
+  },
+  "struct ResLogin(User)": {
+    "user_id": "str",
+    "token": "str",
+    "channel": "LoginChannel",
+    "friends": "User[]"
+  }
+}

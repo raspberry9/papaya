@@ -1,0 +1,27 @@
+# Board Project Protocol
+version: abc1234
+namespace: Proto
+
+enum LoginChannel(uint8):
+  Guest: 0       # Guest
+  Google: 1      # Google(Android)
+  GameCenter: 2  # Game Center(iOS)
+  Facebook: 3    # Facebook
+
+struct ReqLogin:
+  user_id: str
+  password: str
+  channel: LoginChannel
+
+struct User:
+  user_id: str
+  user_name: str
+
+struct ResLogin(User):
+  token: str
+  channel: LoginChannel
+  friend: User
+  friends: User[]
+  values: int64[]
+  created_at: datetime
+  last_login: date
